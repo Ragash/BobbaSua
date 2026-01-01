@@ -7,329 +7,300 @@ HTML = """
     <meta charset="utf-8">
     <title>Mamma Mia</title>
     <link rel="icon" href="https://creazilla-store.fra1.digitaloceanspaces.com/emojis/49647/pizza-emoji-clipart-md.png" type="image/x-icon">
-    <title>Fast Search Example</title>
+
     <style>
         * {
             box-sizing: border-box;
         }
-        body, html {
+
+        html, body {
             margin: 0;
             padding: 0;
             width: 100%;
             height: 100%;
-            font-size: 2.2vh;
-            font-family: 'Open Sans', Arial, sans-serif;
-            color: white;
-            background: url('https://i.postimg.cc/ry3p76HY/italian-seamless-free-vector-pattern3.png') center center repeat;
+            font-size: 2.1vh;
+            font-family: 'Inter', 'Open Sans', Arial, sans-serif;
+            color: #ffffff;
+            background:
+                linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)),
+                url('https://i.postimg.cc/ry3p76HY/italian-seamless-free-vector-pattern3.png')
+                center center repeat;
             background-size: cover;
             display: flex;
-            align-items: flex-start;
             justify-content: center;
+            align-items: flex-start;
             overflow-y: auto;
         }
+
         #addon {
-            background: rgba(0, 0, 0, 0.8);
-            padding: 0.5vh;
-            border-radius: 10px;
+            margin-top: 9vh;
             width: 65vh;
-            max-width: 100%;
+            max-width: 95%;
+            padding: 2vh;
+            border-radius: 14px;
+            background: rgba(20, 20, 20, 0.85);
+            backdrop-filter: blur(6px);
+            box-shadow: 0 1vh 3vh rgba(0,0,0,0.4);
             text-align: center;
-            margin-top: 10vh;
         }
+
         .logo {
-            width: 12vh;
-            margin: 0 auto;
-            margin-bottom: 3vh;
-            margin-top: -3vh;
+            width: 11vh;
+            margin: -6vh auto 2vh;
         }
+
         .logo img {
             width: 100%;
-            height: auto;
+            filter: drop-shadow(0 0 1vh rgba(255,255,255,0.15));
         }
-        h1, h2, h3 {
-            margin: 0;
-            text-shadow: 0 0 1vh rgba(0, 0, 0, 0.15);
-        }
+
         h1 {
-            font-size: 4.5vh;
+            font-size: 4.2vh;
+            margin: 0;
             font-weight: 700;
+            letter-spacing: 0.05vh;
         }
+
         h2 {
             font-size: 2vh;
-            font-weight: normal;
             font-style: italic;
-            opacity: 0.8;
-            margin-bottom: 20px;
+            opacity: 0.75;
+            margin: 0.5vh 0 2vh;
         }
-        h3 {
-            font-size: 2.2vh;
-            margin-bottom: 10px;
-        }
-        .provider-group {
-            display: flex;
-            align-items: center; /* Vertically align items */
-            justify-content: space-between; /* Spread items across the available space */
-            margin-bottom: 2vh;
-            background: rgba(255, 255, 255, 0.1);
-            padding: 1.5vh;
-            border-radius: 5px;
-            overflow: hidden;
-            width: 100%;
 
+        h3 {
+            font-size: 2.3vh;
+            margin: 2vh 0 1vh;
         }
-        .provider-group label {
-            display: flex;
-            align-items: center; /* Align items within label vertically centered */
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            flex-grow: 1; /* Let the label take as much space as possible */
-            font-size: 2.2vh;
+
+        .description {
+            font-size: 1.9vh;
+            opacity: 0.85;
+            margin-bottom: 2vh;
         }
-        .provider-group input[type="checkbox"] {
-            margin-right: 1.5vh;
-            width: 4vh;
-            height: 4vh;
+
+        #additionalText h2 {
+            font-size: 1.8vh;
+            line-height: 1.5;
         }
-        .provider-group input[type="checkbox"][id$="_mfp"] {
-            margin-left: 2.2vh;
-            width: 4vh;
-            height: 4vh;
-        }
-        .parent-container {
+
+        .provider-group {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            width: 100%;
+            gap: 1vh;
+            margin-bottom: 1.4vh;
+            padding: 1.4vh;
+            border-radius: 8px;
+            background: rgba(255,255,255,0.08);
+            transition: background 0.15s ease;
         }
-        .contact {
-            position: absolute;
-            left: 0;
-            bottom: 4vh;
-            width: 100%;
-            text-align: center;
+
+        .provider-group:hover {
+            background: rgba(255,255,255,0.14);
         }
-        .contact a {
-            font-size: 1.4vh;
-            font-style: italic;
+
+        .provider-group label {
+            display: flex;
+            align-items: center;
+            gap: 1.4vh;
+            flex-grow: 1;
+            font-size: 2.1vh;
+            white-space: nowrap;
         }
-        button {
-            border: 0;
-            outline: 0;
-            color: white;
-            background: #8A5AAB;
-            padding: 1.2vh 3.5vh;
-            text-align: center;
-            font-family: 'Open Sans', Arial, sans-serif;
-            font-size: 2.2vh;
-            font-weight: 600;
+
+        input[type="checkbox"] {
+            width: 3.8vh;
+            height: 3.8vh;
             cursor: pointer;
-            display: block;
-            box-shadow: 0 0.5vh 1vh rgba(0, 0, 0, 0.2);
-            transition: box-shadow 0.1s ease-in-out;
+        }
+
+        input[id$="_mfp"] {
+            margin-left: 2vh;
+        }
+
+        button {
+            border: none;
+            border-radius: 999px;
+            padding: 1.3vh 3.5vh;
+            font-size: 2.1vh;
+            font-weight: 600;
+            color: #fff;
+            cursor: pointer;
+            background: linear-gradient(135deg, #8A5AAB, #6f3fa1);
+            box-shadow: 0 0.6vh 1.4vh rgba(0,0,0,0.35);
+            transition: transform 0.12s ease, box-shadow 0.12s ease;
             width: 80%;
-            max-width: 35vh;
-            margin: 1vh auto;
+            max-width: 36vh;
+            margin: 1.2vh auto;
+            display: block;
         }
+
         button:hover {
-            box-shadow: none;
+            transform: translateY(-0.2vh);
+            box-shadow: 0 1vh 2vh rgba(0,0,0,0.45);
         }
+
         button:active {
-            box-shadow: 0 0 0 0.5vh white inset;
+            transform: translateY(0);
+            box-shadow: inset 0 0 0.6vh rgba(255,255,255,0.5);
         }
+
+        #generateManifestButton {
+            background: linear-gradient(135deg, #4CAF50, #3fa046);
+        }
+
+        #installButton {
+            background: linear-gradient(135deg, #FF5722, #e64a19);
+        }
+
         #manifestBox {
             margin-top: 2vh;
             padding: 2vh;
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 5px;
-            display: none; /* Initially hidden */
+            background: rgba(0,0,0,0.55);
+            border-radius: 8px;
+            display: none;
             text-align: left;
-            white-space: pre-wrap; /* Preserves whitespace and wraps text */
-            overflow-wrap: break-word; /* Breaks long words to prevent overflow */
-            word-wrap: break-word; /* For older browsers */
-            max-width: 100%; /* Ensures it doesn't exceed the container width */
-            border: 1px solid #ccc; /* Optional: Add a border for visibility */
-        }
-        #generateManifestButton {
-            background: #4CAF50;
-        }
-        #installButton {
-            background: #FF5722;
-        }
-        #installButton a {
-            color: white;
-            text-decoration: none;
-        }
-        #additionalText {
-            margin-top: 2vh;
+            font-family: monospace;
             font-size: 1.8vh;
-            text-align: left;
+            word-break: break-all;
+            border: 1px solid rgba(255,255,255,0.15);
         }
-        /* Responsive adjustments for smaller screens */
-        @media (max-width: 600px) {
-            .provider-group label {
-                font-size: 2vh;
-                white-space: nowrap;
-            }
+
+        #mediaFlowProxyInputContainer input,
+        #mediaFlowProxyPasswordContainer input {
+            width: 100%;
+            padding: 1.2vh;
+            margin-top: 1vh;
+            border-radius: 6px;
+            border: none;
+            font-size: 1.9vh;
         }
     </style>
 </head>
+
 <body>
-    <div id="addon">
-        <div class="logo">
-            <img src="https://creazilla-store.fra1.digitaloceanspaces.com/emojis/49647/pizza-emoji-clipart-md.png" alt="Logo">
-        </div>
-        <h1 class="name">Mamma Mia</h1>
-        <h2 class="version">v2.0.2</h2>
-        <div id="additionalText">
-            <h2>This addon provides Movie, Series, Anime, and Live TV HTTPS Streams.<br> https://github.com/UrloMythus/MammaMia/</h2>
-        </div>
-        <p class="description">🕵️‍♂️ = Mediaflowproxy might be needed <br>Select the box with this icon if you want to enable MFP for that source<br></p>
-        <h3 class="gives">Select Providers:</h3>
-        <form class="pure-form" id="provider-form">
-            <div class="provider-group">
-                <label for="streamingwatch" class="provider-label">
-                    <input type="checkbox" id="streamingwatch"> StreamingWatch
-                </label>
-            </div>
-             <div class="provider-group">
-                <label for="guardoserie" class="provider-label">
-                    <input type="checkbox" id="guardoserie"> Guardoserie
-                </label>
-            </div>
-             <div class="provider-group">
-                <label for="guardaflix" class="provider-label">
-                    <input type="checkbox" id="guardaflix"> Guardaflix
-                </label>
-            </div>
-            <div class="provider-group">
-                <label for="animeworld" class="provider-label">
-                    <input type="checkbox" id="animeworld"> Animeworld
-                </label>
-            </div>
-            <div class="provider-group">
-                <label for="guardaserie" class="provider-label">
-                    <input type="checkbox" id="guardaserie"> Guardaserie
-                </label>
-            </div>
-            <div class="provider-group">
-                <label for="guardahd" class="provider-label">
-                    <input type="checkbox" id="guardahd"> GuardaHD
-                </label>
-            </div>
-          <div> 
-            </div>          
-            <div class="provider-group">
-                <label for="cb01" class="provider-label">
-                    <input type="checkbox" id="cb01"> CB01 🕵️‍♂️
-                </label>
-            </div>
-            <div class="provider-group">
-                <label for="streamingcommunity" class="provider-label">
-                    <input type="checkbox" id="streamingcommunity"> StreamingCommunity 🕵️‍♂️
-                    <input type="checkbox" id="streamingcommunity_mfp" checked> 🕵️‍♂️
-                </label>
-            </div>
-             <div class="provider-group">
-                <label for="eurostreaming" class="provider-label">
-                    <input type="checkbox" id="eurostreaming"> Eurostreaming 🕵️‍♂️
-                </label>
-            </div>
-            <div class="provider-group">
-                <label for="realtime" class="provider-label">
-                    <input type="checkbox" id="realtime"> Realtime
-                </label>
-            </div>
-            <div class="provider-group">
-                <label for="livetv" class="provider-label">
-                    <input type="checkbox" id="livetv"> LiveTV
-                </label>
-            </div>
-            <div class="provider-group">
-                <label for="mediaflowproxy" class="provider-label">
-                    <input type="checkbox" id="mediaflowproxy"> MediaFlow Proxy
-                </label>
-                <button type="button" id="mediaFlowProxyButton">Insert Proxy Info</button>
-            </div>
-            <div id="mediaFlowProxyInputContainer" style="display: none;">
-                <input type="text" id="mediaFlowProxyInput" placeholder="Proxy URL">
-            </div>
-            <div id="mediaFlowProxyPasswordContainer" style="display: none;">
-                <input type="password" id="mediaFlowProxyPassword" placeholder="Insert Password">
-            </div>
-        </form>
-        <button id="generateManifestButton">Generate Manifest</button>
-        <div id="manifestBox"></div>
-        <button id="installButton">Install in Stremio</button>
+<div id="addon">
+
+    <div class="logo">
+        <img src="https://creazilla-store.fra1.digitaloceanspaces.com/emojis/49647/pizza-emoji-clipart-md.png">
     </div>
-    <script>
-        // Toggle visibility of proxy input fields
-    document.getElementById('mediaFlowProxyButton').addEventListener('click', function() {
-        const inputContainer = document.getElementById('mediaFlowProxyInputContainer');
-        const passwordInputContainer = document.getElementById('mediaFlowProxyPasswordContainer');
-        inputContainer.style.display = inputContainer.style.display === 'none' ? 'block' : 'none';
-        passwordInputContainer.style.display = passwordInputContainer.style.display === 'none' ? 'block' : 'none';
-    });
 
-    // Function to generate the manifest URL
-    function generateManifest() {
-        let manifest = "|";
-        const providers = {
-            "streamingcommunity": "SC",
-            "streamingwatch": "SW",
-            "animeworld": "AW",
-            "livetv": "LIVETV",
-            "cb01": "CB",
-            "guardaserie": "GS",
-            "guardahd": "GHD",
-            "guardoserie": "GO",
-            "guardaflix": "GF",
-            "eurostreaming": "ES",
-            "realtime": "RT",
-            "streamingcommunity_mfp": "SC_MFP",
-            "mediaflowproxy": "MFP"
-        };
+    <h1>Mamma Mia</h1>
+    <h2>v2.0.2</h2>
 
-        // Loop through providers and add selected ones to the manifest
-        for (const id in providers) {
-            if (document.getElementById(id).checked) {
-                if (id === "mediaflowproxy") {
-                    // Add proxy details if MFP is selected
-                    const proxyUrl = document.getElementById("mediaFlowProxyInput").value.trim();
-                    const proxyPassword = document.getElementById("mediaFlowProxyPassword").value.trim();
-                    if (proxyUrl && proxyPassword) {
-                        manifest += `MFP[${proxyUrl},${proxyPassword}]|`;
-                    } else {
-                        manifest += providers[id] + "|"; // Fallback to just "MFP" if no details provided
-                    }
-                } else {
-                    manifest += providers[id] + "|";
-                }
+    <div id="additionalText">
+        <h2>
+            This addon provides Movie, Series, Anime, and Live TV HTTPS Streams.<br>
+            https://github.com/UrloMythus/MammaMia/
+        </h2>
+    </div>
+
+    <p class="description">
+        🕵️‍♂️ = Mediaflowproxy might be needed<br>
+        Select the box with this icon if you want to enable MFP for that source
+    </p>
+
+    <h3>Select Providers:</h3>
+
+    <form id="provider-form">
+
+        <div class="provider-group"><label><input type="checkbox" id="streamingwatch"> StreamingWatch</label></div>
+        <div class="provider-group"><label><input type="checkbox" id="guardoserie"> Guardoserie</label></div>
+        <div class="provider-group"><label><input type="checkbox" id="guardaflix"> Guardaflix</label></div>
+        <div class="provider-group"><label><input type="checkbox" id="animeworld"> Animeworld</label></div>
+        <div class="provider-group"><label><input type="checkbox" id="guardaserie"> Guardaserie</label></div>
+        <div class="provider-group"><label><input type="checkbox" id="guardahd"> GuardaHD</label></div>
+        <div class="provider-group"><label><input type="checkbox" id="cb01"> CB01 🕵️‍♂️</label></div>
+
+        <div class="provider-group">
+            <label>
+                <input type="checkbox" id="streamingcommunity"> StreamingCommunity 🕵️‍♂️
+                <input type="checkbox" id="streamingcommunity_mfp" checked> 🕵️‍♂️
+            </label>
+        </div>
+
+        <div class="provider-group"><label><input type="checkbox" id="eurostreaming"> Eurostreaming 🕵️‍♂️</label></div>
+        <div class="provider-group"><label><input type="checkbox" id="realtime"> Realtime</label></div>
+        <div class="provider-group"><label><input type="checkbox" id="livetv"> LiveTV</label></div>
+
+        <div class="provider-group">
+            <label><input type="checkbox" id="mediaflowproxy"> MediaFlow Proxy</label>
+            <button type="button" id="mediaFlowProxyButton">Insert Proxy Info</button>
+        </div>
+
+        <div id="mediaFlowProxyInputContainer" style="display:none;">
+            <input type="text" id="mediaFlowProxyInput" placeholder="Proxy URL">
+        </div>
+
+        <div id="mediaFlowProxyPasswordContainer" style="display:none;">
+            <input type="password" id="mediaFlowProxyPassword" placeholder="Insert Password">
+        </div>
+
+    </form>
+
+    <button id="generateManifestButton">Generate Manifest</button>
+    <div id="manifestBox"></div>
+    <button id="installButton">Install in Stremio</button>
+
+</div>
+
+<script>
+document.getElementById('mediaFlowProxyButton').addEventListener('click', () => {
+    const i = document.getElementById('mediaFlowProxyInputContainer');
+    const p = document.getElementById('mediaFlowProxyPasswordContainer');
+    i.style.display = i.style.display === 'none' ? 'block' : 'none';
+    p.style.display = p.style.display === 'none' ? 'block' : 'none';
+});
+
+function generateManifest() {
+    let manifest = "|";
+    const providers = {
+        streamingcommunity: "SC",
+        streamingwatch: "SW",
+        animeworld: "AW",
+        livetv: "LIVETV",
+        cb01: "CB",
+        guardaserie: "GS",
+        guardahd: "GHD",
+        guardoserie: "GO",
+        guardaflix: "GF",
+        eurostreaming: "ES",
+        realtime: "RT",
+        streamingcommunity_mfp: "SC_MFP",
+        mediaflowproxy: "MFP"
+    };
+
+    for (const id in providers) {
+        const el = document.getElementById(id);
+        if (el && el.checked) {
+            if (id === "mediaflowproxy") {
+                const url = mediaFlowProxyInput.value.trim();
+                const pass = mediaFlowProxyPassword.value.trim();
+                manifest += url && pass ? `MFP[${url},${pass}]|` : "MFP|";
+            } else {
+                manifest += providers[id] + "|";
             }
         }
-        const encodedProviders = btoa(manifest);
-        const instanceUrl = "{instance_url}"; // Replace with your instance URL
-        const manifestUrl = instanceUrl + "/" + encodedProviders + "/" + "manifest.json";
-        return manifestUrl;
     }
 
-    // Generate manifest URL and display it
-    document.getElementById('generateManifestButton').addEventListener('click', function() {
-        const manifestUrl = generateManifest();
-        const manifestBox = document.getElementById("manifestBox");
-        manifestBox.style.display = "block";
-        manifestBox.innerText = manifestUrl;
-    });
+    const encoded = btoa(manifest);
+    const instanceUrl = "{instance_url}";
+    return instanceUrl + "/" + encoded + "/manifest.json";
+}
 
-    // Install the manifest in Stremio
-    document.getElementById('installButton').addEventListener('click', function() {
-        let manifestUrl = generateManifest();
-        manifestUrl = manifestUrl.replace("http://", "");
-        manifestUrl = manifestUrl.replace("https://", "");
-        const stremioUrl = "stremio://" + manifestUrl;
-        window.location.href = stremioUrl;
-    });
-    </script>
+document.getElementById('generateManifestButton').onclick = () => {
+    const box = document.getElementById('manifestBox');
+    box.style.display = 'block';
+    box.innerText = generateManifest();
+};
+
+document.getElementById('installButton').onclick = () => {
+    let url = generateManifest().replace(/^https?:\\/\\//, '');
+    window.location.href = "stremio://" + url;
+};
+</script>
+
 </body>
 </html>
 """
